@@ -20,7 +20,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
     const postsToCreate = ops.posts.creates
       .filter((create) => {
-        return create.record.text.toLowerCase().includes('typescript')
+        return create.record.text.toLowerCase().includes('rpg')
       })
       .map((create) => {
         // map alf-related posts to a db row
