@@ -64,7 +64,10 @@ export class FeedGenerator {
   async start(): Promise<http.Server> {
     await migrateToLatest(this.db)
     this.firehose.run(this.cfg.subscriptionReconnectDelay)
-    this.server = this.app.listen(this.cfg.port, this.cfg.listenhost)
+    const port = process.env.PORT || 3000
+    this.server = this.app.listen(port, () => {
+      console.log(`Server running on port ${port}`)
+    })
     await events.once(this.server, 'listening')
     return this.server
   }
