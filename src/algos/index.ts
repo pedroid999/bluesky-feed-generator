@@ -3,12 +3,12 @@ import {
   QueryParams,
   OutputSchema as AlgoOutput,
 } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
-import * as whatsPathOfExile from './whatsPathOfExile'
+import * as whatsTypescript from './whatsTypescript'
 
 type AlgoHandler = (ctx: AppContext, params: QueryParams) => Promise<AlgoOutput>
 
 const algos: Record<string, AlgoHandler> = {
-  [whatsPathOfExile.shortname]: whatsPathOfExile.handler,
+  [whatsTypescript.shortname]: whatsTypescript.handler,
 }
 
 export default algos
