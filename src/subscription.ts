@@ -22,7 +22,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
       .filter((create) => {
         const text = create.record.text.toLowerCase()
         // Include posts related to Path of Exile 2
-        return text.includes('path of exile 2') || text.includes('POE2')
+        return text.includes('path of exile') || text.includes('POE')
       })
       .map((create) => {
         // map alf-related posts to a db row
