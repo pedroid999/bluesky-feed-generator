@@ -2,7 +2,7 @@ import { QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
 import { AppContext } from '../config'
 
 // max 15 chars
-export const shortname = 'whatsTypescript'
+export const shortname = 'whatsRpg'
 
 export const handler = async (ctx: AppContext, params: QueryParams) => {
   let builder = ctx.db
@@ -19,7 +19,7 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
 
   const res = await builder.execute()
 
-  console.log('whatsTypescript handler', res)
+  console.log('whatsRpg handler', res)
 
   const feed = res.map((row) => ({
     post: row.uri,

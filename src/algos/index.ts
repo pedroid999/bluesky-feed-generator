@@ -3,12 +3,12 @@ import {
   QueryParams,
   OutputSchema as AlgoOutput,
 } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
-import * as whatsTypescript from './whatsTypescript'
+import * as whatsRpg from './whatsRpg'
 
 type AlgoHandler = (ctx: AppContext, params: QueryParams) => Promise<AlgoOutput>
 
 const algos: Record<string, AlgoHandler> = {
-  [whatsTypescript.shortname]: whatsTypescript.handler,
+  [whatsRpg.shortname]: whatsRpg.handler,
 }
 
 export default algos
