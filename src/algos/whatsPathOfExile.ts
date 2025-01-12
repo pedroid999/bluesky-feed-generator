@@ -2,7 +2,7 @@ import { QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
 import { AppContext } from '../config'
 
 // max 15 chars
-export const shortname = 'whatsCalifornia'
+export const shortname = 'whatsPathOfExile'
 
 export const handler = async (ctx: AppContext, params: QueryParams) => {
   let builder = ctx.db
@@ -16,9 +16,10 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
     const timeStr = new Date(parseInt(params.cursor, 10)).toISOString()
     builder = builder.where('post.indexedAt', '<', timeStr)
   }
+
   const res = await builder.execute()
 
-  console.log('whatsCalifornia handler', res)
+  console.log('whatsPathOfExile handler', res)
 
   const feed = res.map((row) => ({
     post: row.uri,

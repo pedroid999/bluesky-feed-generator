@@ -20,8 +20,9 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
     const postsToCreate = ops.posts.creates
       .filter((create) => {
-        // only California-relatedposts
-        return create.record.text.toLowerCase().includes('california')
+        const text = create.record.text.toLowerCase()
+        // Include posts related to Path of Exile 2
+        return text.includes('path of exile 2') || text.includes('POE2')
       })
       .map((create) => {
         // map alf-related posts to a db row
